@@ -8,7 +8,7 @@ This repository serves as my personal knowledge base and practice space for tech
 - Behavioral interview preparation
 - Common interview questions and solutions
 - Study plans and progress tracking
-- Currently have done multiple CCC questions
+- Currently have done multiple CCC questions (From DMOJ)
 
 ## Structure
 
