@@ -1,4 +1,28 @@
 
+
+/*
+// Fixing Errors with Bean Jars
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numBeans;
+   int numJars;
+   int totalBeans;
+
+   numBeans = 500;
+   numJars = 3;
+   
+   cout << numBeans << " beans in ";
+   cout << numJars   << " jars yields ";
+   totalBeans = numBeans * numJars; 
+   cout << totalBeans << " total" << endl;
+   
+   return 0;
+}
+/*
+
+// Driving Age Calculator
 #include <iostream>
 using namespace std;
 
@@ -18,8 +42,8 @@ int main() {
    cout << "."; 
    cout << endl;  
 }
-
 /*
+
 // Dog Years to Human Years conversion
 #include <iostream>
 using namespace std;
