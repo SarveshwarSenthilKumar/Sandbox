@@ -3,6 +3,28 @@
 using namespace std;
 
 int main() {
+   int drivingYear;
+   int drivingAge;
+   int numStates; 
+
+   drivingYear = 2014;
+   drivingAge = 18;
+   numStates = 10; 
+
+   cout << "In ";
+   cout << drivingYear;
+   cout << ", the driving age is ";
+   cout << drivingAge; 
+   cout << "."; 
+   cout << endl;  
+}
+
+/*
+// Dog Years to Human Years conversion
+#include <iostream>
+using namespace std;
+
+int main() {
    int dogYears;
    int humanYears;
    
@@ -17,6 +39,7 @@ int main() {
    
    return 0;
 }
+*/
 
 /*
 // Basic Wage Program
