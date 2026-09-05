@@ -24,17 +24,22 @@ int main() {
 // ============================================================
 void scene_intro() {
     cout << "\n===================================\n";
-    cout << " Welcome to the Haunted Mansion! \n";
+    cout << " Welcome to the Impossible Mission! \n";
     cout << "===================================\n\n";
-    cout << "You are standing at the front gate of an old, creaky mansion.\n";
-    cout << "The wind howls and leaves swirl around your feet.\n\n";
+
+    cout << "You are standing at the gate of a top-secret intelligence agency headquarters.\n";
+    cout << "There are security guards and officers all around you.\n\n";
     cout << "What do you do?\n";
-    cout << "1. Push open the iron gate and go inside.\n";
-    cout << "2. Walk around to the back of the mansion.\n";
+
+    cout << "1. Scan your forged ID card and go inside.\n";
+    cout << "2. Walk around to the other entrance.\n";
     cout << "3. Run away. This was a terrible idea.\n\n";
+
     int choice; // This creates a variable to store the player's choice
+
     cout << "Enter your choice (1, 2, or 3): ";
     cin >> choice; // This reads what the player types
+
     // This "if/else if/else" block runs different code based on the choice
     if (choice == 1) {
         scene_inside(); // Go to the inside scene
@@ -49,15 +54,15 @@ void scene_intro() {
 // SCENE 2: Inside the Mansion
 // ============================================================
 void scene_inside() {
-    cout << "\nYou push open the rusty gate. It groans loudly.\n";
-    cout << "Inside, dusty portraits line the walls. Something moves upstairs.\n\n";
+    cout << "\nYou go inside the headquarters. There are high-tech cameras and surveillance systems throughout the office everwhere.\n";
+    cout << "Various rooms and labs line the walls. However, you find the right room with the vault.\n\n";
     cout << "What do you do?\n";
-    cout << "1. Investigate the sound upstairs.\n";
-    cout << "2. Check out the kitchen.\n\n";
+    cout << "1. Go directly inside the room using your ID.\n";
+    cout << "2. Reroute and find the air vents.\n\n";
     int choice;
     cout << "Enter your choice (1 or 2): ";
     cin >> choice;
-    if (choice == 1) {
+    if (choice == 2) {
         scene_ending_good();
     } else {
         scene_ending_bad();
