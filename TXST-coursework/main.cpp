@@ -1,3 +1,10 @@
+// ============================================================
+// Game Title: The Ultimate Road Trip
+// Your Name: Sarveshwar Senthil Kumar
+// Course: TXST US1100.167
+// Description: The objective of the game is to buy a car and make a series of correct decisions to get to the final destination.
+// ============================================================
+
 #include <iostream> // This lets us use cout and cin (print and read input)
 #include <string> // This lets us use the string type
 using namespace std; // This saves us from typing "std::" everywhere
@@ -23,27 +30,37 @@ int main() {
 // SCENE 1: The Introduction
 // ============================================================
 void scene_intro() {
+
+    int moneyLeft;
+    int choice; // This creates a variable to store the player's choice
+    int miles;
+    string car;
+
+    moneyLeft = 20000;
+
     cout << "\n===================================\n";
-    cout << " Welcome to the Impossible Mission! \n";
+    cout << " Welcome to the Ultimate Road Trip! \n";
     cout << "===================================\n\n";
 
-    cout << "You are standing at the gate of a top-secret intelligence agency headquarters.\n";
-    cout << "There are security guards and officers all around you.\n\n";
-    cout << "What do you do?\n";
+    cout << "The first decision you need to make for this road trip is choose the perfect vehicle.\n";
+    cout << "You have $" << moneyLeft << " saved up for this road trip. You have arrived at the dealership." << "\n\n";
+    cout << "Which car do you buy?\n";
 
-    cout << "1. Scan your forged ID card and go inside.\n";
-    cout << "2. Walk around to the other entrance.\n";
-    cout << "3. Run away. This was a terrible idea.\n\n";
-
-    int choice; // This creates a variable to store the player's choice
+    cout << "1. Toyota GT-86 ($20,000 incl. taxes)\n";
+    cout << "2. Honda Civic ($12,000 incl. taxes)\n";
+    cout << "3. Audi A4 ($14,000 incl. taxes).\n\n";
 
     cout << "Enter your choice (1, 2, or 3): ";
     cin >> choice; // This reads what the player types
 
     // This "if/else if/else" block runs different code based on the choice
-    if (choice == 1) {
+    if (choice == 2) {
+        car = "Honda Civic";
+        moneyLeft -= 12000;
         scene_inside(); // Go to the inside scene
-    } else if (choice == 2) {
+    } else if (choice == 3) {
+        car = "Audi A4";
+        moneyLeft -= 14000;
         scene_back(); // Go to the back scene
     } else {
         scene_ending_bad(); // Any other input = run away ending
@@ -84,7 +101,8 @@ void scene_back() {
 // ============================================================
 void scene_ending_good() {
     cout << "\n*** THE END ***\n";
-    cout << "You found the hidden treasure! You win!\n";
+    cout << "";
+    cout << "You have completed the ultimate road trip! You win!\n";
 }
 
 // ============================================================
@@ -92,5 +110,11 @@ void scene_ending_good() {
 // ============================================================
 void scene_ending_bad() {
     cout << "\n*** GAME OVER ***\n";
+    cout << "Unfortunately you have run out of money.\n";
     cout << "You didn't make it out. Better luck next time.\n";
+}
+
+// Method to print out all saved variables
+void output_metrics(string car, int miles) {
+    cout << "You have bought " <<  car << " and driven " << miles << endl;
 }
