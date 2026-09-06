@@ -16,6 +16,7 @@ void scene_inside();
 void scene_back();
 void scene_ending_good();
 void scene_ending_bad();
+void maintenance_scene();
 
 // ============================================================
 // main() is where every C++ program starts running
@@ -47,8 +48,8 @@ void scene_intro() {
     cout << "Which car do you buy?\n";
 
     cout << "1. Toyota GT-86 ($20,000 incl. taxes)\n";
-    cout << "2. Honda Civic ($12,000 incl. taxes)\n";
-    cout << "3. Audi A4 ($14,000 incl. taxes).\n\n";
+    cout << "2. Honda Civic ($14,000 incl. taxes)\n";
+    cout << "3. Audi A4 ($17,000 incl. taxes).\n\n";
 
     cout << "Enter your choice (1, 2, or 3): ";
     cin >> choice; // This reads what the player types
@@ -56,44 +57,89 @@ void scene_intro() {
     // This "if/else if/else" block runs different code based on the choice
     if (choice == 2) {
         car = "Honda Civic";
-        moneyLeft -= 12000;
-        scene_inside(); // Go to the inside scene
+        moneyLeft -= 14000;
+        scene_inside(car, miles, moneyLeft); // Go to the inside scene
     } else if (choice == 3) {
         car = "Audi A4";
-        moneyLeft -= 14000;
-        scene_back(); // Go to the back scene
+        moneyLeft -= 17000;
+        scene_inside(car, miles, moneyLeft); // Go to the back scene
     } else {
-        scene_ending_bad(); // Any other input = run away ending
+        moneyLeft -= 20000;
+        scene_ending_bad(); // Any other input = bad ending
     }
 }
 
 // ============================================================
-// SCENE 2: Inside the Mansion
+// SCENE 2: Insurance and Maintenance Pre-Road Trip
 // ============================================================
-void scene_inside() {
-    cout << "\nYou go inside the headquarters. There are high-tech cameras and surveillance systems throughout the office everwhere.\n";
-    cout << "Various rooms and labs line the walls. However, you find the right room with the vault.\n\n";
+void scene_inside(string car, int miles, int moneyLeft) {
+
+    int insurance = get_insurance(car);
+    int maintenance = get_maintenance(car);
+    output_metrics(car, miles, moneyLeft);
+    cout << "\nYou now have to buy insurance, as well as do a routine maintenance check.\n";
+    cout << "Rates and prices for these functions depend on the vehicle you chose.\n\n";
     cout << "What do you do?\n";
-    cout << "1. Go directly inside the room using your ID.\n";
-    cout << "2. Reroute and find the air vents.\n\n";
+
+    cout << "1. Buy insurance and do the routine maintenance check. ($" << insurance + maintenance << " incl. taxes) \n";
+    cout << "2. Depart on road trip with just insurance. ($" << insurance << " incl. taxes)\n\n";
+
     int choice;
     cout << "Enter your choice (1 or 2): ";
     cin >> choice;
-    if (choice == 2) {
+
+    if (choice == 1) {
+        moneyLeft -= insurance + maintenance;
         scene_ending_good();
     } else {
-        scene_ending_bad();
+        moneyLeft -= insurance;
+        maintenance_scene(maintenance, moneyLeft);
     }
 }
 
+int get_insurance(string car){
+    int insurance;
+
+    if (car == "Honda Civic"){
+        insurance = 350;
+    }
+    else if (car == "Audi A4"){
+        insurance = 750;
+    }
+
+    return insurance;
+}
+int get_maintenance(string car){
+    int maintenance;
+
+    if (car == "Honda Civic"){
+        maintenance = 300;
+    }
+    else if (car == "Audi A4"){
+        maintenance = 950;
+    }
+
+    return maintenance;
+}
+
 // ============================================================
-// SCENE 3: Behind the Mansion
+// SCENE 3: Start of Road Trip
 // ============================================================
 void scene_back() {
     // TODO: Write your own description here!
     // Use cout << "Your text here.\n"; to print text
     // Then add choices and use cin >> choice; to read the player's input
     cout << "[This scene is under construction...]\n";
+}
+
+// ============================================================
+// ALT SCENE 3: Start of Road Trip (Vehicle Breaks Down)
+// ============================================================
+void maintenance_scene(int maintenance, int moneyLeft) {
+    int fix_price = maintenance * 2;
+    cout << "Unfortunately, your car broke down right before starting.\n";
+    cout << "You now have to pay " << fix_price << " to fix your car and continue.";
+    cout << "" 
 }
 
 // ============================================================
@@ -115,6 +161,6 @@ void scene_ending_bad() {
 }
 
 // Method to print out all saved variables
-void output_metrics(string car, int miles) {
-    cout << "You have bought " <<  car << " and driven " << miles << endl;
+void output_metrics(string car, int miles, int moneyLeft) {
+    cout << "You have bought " <<  car << " and driven " << miles << " so far." << endl;
 }
