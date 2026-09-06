@@ -13,15 +13,17 @@ using namespace std; // This saves us from typing "std::" everywhere
 
 void scene_intro(); // This is a "declaration" - we're telling C++ these functions exist
 void scene_inside(string car, int miles, int moneyLeft);
-void scene_back();
 void scene_ending_good();
 void scene_ending_bad();
 
 void output_metrics(string car, int miles, int moneyLeft);
-void maintenance_scene(int maintenance, int moneyLeft); 
+void maintenance_scene(string car, int miles, int moneyLeft); 
+void road_scene(string car, int moneyLeft);
 
 int get_insurance(string car);
 int get_maintenance(string car);
+
+int calculate_miles(string car, int moneyLeft);
 
 // ============================================================
 // main() is where every C++ program starts running
@@ -95,13 +97,14 @@ void scene_inside(string car, int miles, int moneyLeft) {
 
     if (choice == 1) {
         moneyLeft -= insurance + maintenance;
-        scene_ending_good();
+        road_scene(car, moneyLeft);
     } else {
         moneyLeft -= insurance;
-        maintenance_scene(maintenance, moneyLeft);
+        maintenance_scene(car, miles, moneyLeft);
     }
 }
 
+// Method to calculate insurance based on car
 int get_insurance(string car){
     int insurance;
 
@@ -114,6 +117,7 @@ int get_insurance(string car){
 
     return insurance;
 }
+// Method to calculate maintenance based on car
 int get_maintenance(string car){
     int maintenance;
 
@@ -127,24 +131,74 @@ int get_maintenance(string car){
     return maintenance;
 }
 
+int calculate_miles(string car, int moneyLeft){
+    int miles;
+    if (car == "Honda Civic"){
+        // Intentional truncation to conform to odometer style
+        const double COST_PER_MILE = 0.11;
+        miles = moneyLeft / COST_PER_MILE;
+    }
+    else {
+        // Intentional truncation to conform to odometer style
+        const double COST_PER_MILE = 0.19;
+        miles = moneyLeft / COST_PER_MILE;
+    }
+
+    return miles;
+}
+
 // ============================================================
 // SCENE 3: Start of Road Trip
 // ============================================================
-void scene_back() {
-    // TODO: Write your own description here!
-    // Use cout << "Your text here.\n"; to print text
-    // Then add choices and use cin >> choice; to read the player's input
-    cout << "[This scene is under construction...]\n";
+void road_scene(string car, int moneyLeft) {
+    
+    cout << "You have taken all the necessary precautions for the road trip.\n\n";
+    cout << "Are you ready to start?\n";
+    cout << "1. Yes.\n";
+    cout << "2. NO, give up.\n\n";
+
+    int choice;
+    cout << "Enter your choice (1 or 2): ";
+    cin >> choice;
+
+    if (choice == 1){
+        int miles = calculate_miles(car, moneyLeft);
+        moneyLeft = 0;
+        output_metrics(car, miles, moneyLeft);
+        scene_ending_good();
+    }
+    else{
+        int miles = 0;
+        output_metrics(car, miles, moneyLeft);
+        scene_ending_bad();
+    }
 }
 
 // ============================================================
 // ALT SCENE 3: Start of Road Trip (Vehicle Breaks Down)
 // ============================================================
-void maintenance_scene(int maintenance, int moneyLeft) {
-    int fix_price = maintenance * 2;
-    cout << "Unfortunately, your car broke down right before starting.\n";
-    cout << "You now have to pay " << fix_price << " to fix your car and continue.";
-    cout << "" ;
+void maintenance_scene(string car, int miles, int moneyLeft) {
+    int fix_price = get_maintenance(car) * 2;
+    int choice;
+
+    cout << "\nUnfortunately, your car broke down right before starting.\n";
+    cout << "You now have to pay $" << fix_price << " to fix your car and continue. \n\n";
+    cout << "What do you do?\n";
+    cout << "1. Quit the Road Trip\n";
+    cout << "2. Pay and Start the Road Trip\n";
+
+    cout << "Enter your choice (1 or 2): ";
+    cin >> choice;
+
+    if (choice == 2){
+        moneyLeft -= fix_price;
+        road_scene(car, moneyLeft);
+    }
+    else {
+        output_metrics(car, miles, moneyLeft);
+        scene_ending_bad();
+    }
+
 }
 
 // ============================================================
@@ -161,7 +215,7 @@ void scene_ending_good() {
 // ============================================================
 void scene_ending_bad() {
     cout << "\n\n*** GAME OVER ***\n";
-    cout << "Unfortunately you have run out of money.\n";
+    cout << "Unfortunately you have made the incorrect choice.\n";
     cout << "You didn't make it out. Better luck next time.\n";
 }
 
