@@ -12,11 +12,16 @@ using namespace std; // This saves us from typing "std::" everywhere
 // You'll make your own functions later!
 
 void scene_intro(); // This is a "declaration" - we're telling C++ these functions exist
-void scene_inside();
+void scene_inside(string car, int miles, int moneyLeft);
 void scene_back();
 void scene_ending_good();
 void scene_ending_bad();
-void maintenance_scene();
+
+void output_metrics(string car, int miles, int moneyLeft);
+void maintenance_scene(int maintenance, int moneyLeft); 
+
+int get_insurance(string car);
+int get_maintenance(string car);
 
 // ============================================================
 // main() is where every C++ program starts running
@@ -32,12 +37,10 @@ int main() {
 // ============================================================
 void scene_intro() {
 
-    int moneyLeft;
+    int moneyLeft = 20000;
     int choice; // This creates a variable to store the player's choice
-    int miles;
+    int miles = 0;
     string car;
-
-    moneyLeft = 20000;
 
     cout << "\n===================================\n";
     cout << " Welcome to the Ultimate Road Trip! \n";
@@ -64,7 +67,9 @@ void scene_intro() {
         moneyLeft -= 17000;
         scene_inside(car, miles, moneyLeft); // Go to the back scene
     } else {
+        car = "Toyota GT-86";
         moneyLeft -= 20000;
+        output_metrics(car, miles, moneyLeft);
         scene_ending_bad(); // Any other input = bad ending
     }
 }
@@ -77,7 +82,7 @@ void scene_inside(string car, int miles, int moneyLeft) {
     int insurance = get_insurance(car);
     int maintenance = get_maintenance(car);
     output_metrics(car, miles, moneyLeft);
-    cout << "\nYou now have to buy insurance, as well as do a routine maintenance check.\n";
+    cout << "\n\nYou now have to buy insurance, as well as do a routine maintenance check.\n";
     cout << "Rates and prices for these functions depend on the vehicle you chose.\n\n";
     cout << "What do you do?\n";
 
@@ -139,7 +144,7 @@ void maintenance_scene(int maintenance, int moneyLeft) {
     int fix_price = maintenance * 2;
     cout << "Unfortunately, your car broke down right before starting.\n";
     cout << "You now have to pay " << fix_price << " to fix your car and continue.";
-    cout << "" 
+    cout << "" ;
 }
 
 // ============================================================
@@ -155,12 +160,13 @@ void scene_ending_good() {
 // ENDING: The Bad Ending
 // ============================================================
 void scene_ending_bad() {
-    cout << "\n*** GAME OVER ***\n";
+    cout << "\n\n*** GAME OVER ***\n";
     cout << "Unfortunately you have run out of money.\n";
     cout << "You didn't make it out. Better luck next time.\n";
 }
 
 // Method to print out all saved variables
 void output_metrics(string car, int miles, int moneyLeft) {
-    cout << "You have bought " <<  car << " and driven " << miles << " so far." << endl;
+    cout << "\nYou have bought " <<  car << " and driven " << miles << " miles so far." << endl;
+    cout << "After that, currently you now only have $" << moneyLeft << " left";
 }
