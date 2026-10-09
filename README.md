@@ -7,7 +7,6 @@ This repository serves as a sandbox for testing and experimenting with various p
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Interview Preparation Repository](#interview-preparation-repository)
 
 ## Installation
 
@@ -28,9 +27,9 @@ Each project in the sandbox has its own README file that provides instructions o
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
-## Interview Preparation Repository
+## Interview Preparation
 
-This repository serves as my personal knowledge base and practice space for technical interview preparation. It contains:
+This repository also serves as a secondary use case for interview preparation. It contains:
 
 - Data structures and algorithms implementations
 - Solutions to coding problems from various platforms (LeetCode, HackerRank, etc.)
@@ -42,7 +41,7 @@ This repository serves as my personal knowledge base and practice space for tech
 
 ### Structure
 
-Currently, the repository is focused on Canadian Computing Competition (CCC) problems. Other sections will be added in the future.
+The interview preparation section is organized as follows:
 
 ```plaintext
 ├── ccc/               # Canadian Computing Competition problems (active)
@@ -81,10 +80,6 @@ def calculate_happiness(s, m, l):
 2. Navigate to the relevant section
 3. Start practicing!
 
-### Contributing
-
-This is a personal repository for interview preparation. While contributions aren't expected, feel free to use it as a reference or inspiration for your own preparation.
-
 ### Planned Additions
 
 - Algorithm implementations and practice
@@ -93,4 +88,3 @@ This is a personal repository for interview preparation. While contributions are
 - System design concepts and examples
 - Behavioral interview preparation
 - Helpful resources and study materials
-
