@@ -7,6 +7,7 @@ This repository serves as a sandbox for testing and experimenting with various p
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Interview Preparation](#interview-preparation)
 
 ## Installation
 
