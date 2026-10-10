@@ -33,12 +33,13 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 This repository also serves as a secondary use case for interview preparation. It contains:
 
 - Data structures and algorithms implementations
-- Solutions to coding problems from various platforms (LeetCode, HackerRank, etc.)
+- Solutions to coding problems from various platforms (LeetCode, HackerRank, DMOJ, NeetCode)
 - System design notes and examples
 - Behavioral interview preparation
 - Common interview questions and solutions
 - Study plans and progress tracking
-- Currently have done multiple CCC questions (From DMOJ)
+- Completed solutions for Canadian Computing Competition (CCC) problems via DMOJ
+- Dedicated practice with **NeetCode** (solutions tracked separately at [neetcode-submissions](https://github.com/SarveshwarSenthilKumar/neetcode-submissions))
 
 ### Structure
 
@@ -49,21 +50,25 @@ The interview preparation section is organized as follows:
 │   └── programming/   # Programming competition problems and solutions
 ├── algorithms/        # [Planned] Algorithm implementations and practice
 ├── data-structures/   # [Planned] Data structure implementations
-├── leetcode/         # [Planned] LeetCode problem solutions
-├── system-design/    # [Planned] System design concepts and examples
-├── behavioral/       # [Planned] Behavioral interview preparation
-└── resources/        # [Planned] Helpful resources and study materials
+├── leetcode/          # [Planned] LeetCode problem solutions
+├── system-design/     # [Planned] System design concepts and examples
+├── behavioral/        # [Planned] Behavioral interview preparation
+└── resources/         # [Planned] Helpful resources and study materials
+
 ```
+
+> **Note:** NeetCode solutions and progress are tracked in the dedicated [neetcode-submissions](https://github.com/SarveshwarSenthilKumar/neetcode-submissions) repository.
 
 ### CCC Problem Format
 
 For Canadian Computing Competition (CCC) problems, each solution file includes the problem statement at the beginning of the file in a comment block, followed by the implementation. This makes it easy to understand the problem context when reviewing solutions.
 
 Example format:
+
 ```python
 """
 CCC '20 J1 - Dog Treats
-Problem: https://dmoj.ca/problem/ccc20j1
+Problem: [https://dmoj.ca/problem/ccc20j1](https://dmoj.ca/problem/ccc20j1)
 
 Given three integers (s, m, l) representing the number of small, medium, and large treats,
 calculate the total happiness score using the formula: 1s + 2m + 3l.
@@ -73,6 +78,7 @@ Return 'happy' if score >= 10, otherwise return 'sad'.
 def calculate_happiness(s, m, l):
     score = s + 2*m + 3*l
     return 'happy' if score >= 10 else 'sad'
+
 ```
 
 ### Getting Started
@@ -83,9 +89,11 @@ def calculate_happiness(s, m, l):
 
 ### Planned Additions
 
-- Algorithm implementations and practice
-- Data structure implementations
-- LeetCode problem solutions
-- System design concepts and examples
-- Behavioral interview preparation
-- Helpful resources and study materials
+* Algorithm implementations and practice
+* Data structure implementations
+* LeetCode problem solutions
+* System design concepts and examples
+* Behavioral interview preparation
+* Helpful resources and study materials
+
+
