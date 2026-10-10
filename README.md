@@ -8,6 +8,7 @@ This repository serves as a sandbox for testing and experimenting with various p
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Interview Preparation](#interview-preparation)
+- [Connect & Links](#connect--links)
 
 ## Installation
 
@@ -96,4 +97,14 @@ def calculate_happiness(s, m, l):
 * Behavioral interview preparation
 * Helpful resources and study materials
 
+---
+
+## Connect & Links
+
+* **Portfolio:** [sarveshwarsenthilkumar.github.io](https://sarveshwarsenthilkumar.github.io)
+* **LinkedIn:** [linkedin.com/in/sarveshwarsenthilkumar](https://www.linkedin.com/in/sarveshwarsenthilkumar)
+* **GitHub:** [@SarveshwarSenthilKumar](https://www.google.com/search?q=https://github.com/SarveshwarSenthilKumar)
+* **NeetCode Practice:** [neetcode-submissions](https://github.com/SarveshwarSenthilKumar/neetcode-submissions)
+
+```
 
